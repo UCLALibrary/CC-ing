@@ -10,7 +10,7 @@ public class StorageProperties {
      */
     private String location = "/var/tmp/tessFiles";
     // Location of tess4j traineddata files and necessary DLL
-    private String tess4jDir = "/usr/local/Cellar/tesseract/3.04.01_2/share";
+    private String tess4jDir = "/usr/share/tesseract-ocr/";
 
     public String getTessDir() {
         return tess4jDir;
