@@ -37,7 +37,7 @@ public class FileSystemStorageService implements StorageService {
         Tesseract OCR = new Tesseract();
         OCR.setDatapath(TESS4J_FOLDER_PATH);
         // TODO: Base on user input
-        OCR.setLanguage("eng");
+        OCR.setLanguage("eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie");
         this.OCR = OCR;
     }
 
