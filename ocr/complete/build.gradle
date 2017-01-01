@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-uploading-files'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    // https://mvnrepository.com/artifact/net.sourceforge.tess4j/tess4j
+    compile group: 'net.sourceforge.tess4j', name: 'tess4j', version: '3.2.1'
+    // https://mvnrepository.com/artifact/net.java.dev.jna/platform
+    compile group: 'net.java.dev.jna', name: 'jna', version: '4.1.0'
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile("org.springframework.boot:spring-boot-configuration-processor")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
