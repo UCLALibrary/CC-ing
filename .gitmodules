@@ -1,0 +1,3 @@
+[submodule "scribeAPI"]
+	path = scribeAPI
+	url = https://github.com/zooniverse/scribeAPI.git
