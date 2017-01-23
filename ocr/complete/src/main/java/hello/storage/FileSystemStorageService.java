@@ -36,8 +36,8 @@ public class FileSystemStorageService implements StorageService {
         this.TESS4J_FOLDER_PATH = properties.getTessDir();
         Tesseract OCR = new Tesseract();
         OCR.setDatapath(TESS4J_FOLDER_PATH);
-        // TODO: Base on user input
-        OCR.setLanguage("eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie");
+	// Languages list based on https://github.com/UCLALibrary/CC-ing/wiki/Books-and-languages-for-pilot
+        OCR.setLanguage("eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm");
         this.OCR = OCR;
     }
 
