@@ -31,6 +31,7 @@ public class FileUploadController {
         return "uploadForm";
     }
 
+    // Handle web page uploads
     @PostMapping("/")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
@@ -42,6 +43,20 @@ public class FileUploadController {
                 ocrResult);
 
         return "redirect:/";
+    }
+
+    // Handle raw image uploads via API
+    @PostMapping("/fileAPI")
+    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+                                   RedirectAttributes redirectAttributes) {
+
+        String ocrResult = storageService.doOcr(file);
+        redirectAttributes.addFlashAttribute("message",
+                "OCR of " + file.getOriginalFilename() + " successful! Result is");
+        redirectAttributes.addFlashAttribute("ocrResult",
+                ocrResult);
+
+	return ocrResult;
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)
