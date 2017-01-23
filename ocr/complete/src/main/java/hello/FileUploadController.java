@@ -47,7 +47,7 @@ public class FileUploadController {
 
     // Handle raw image uploads via API
     @PostMapping("/fileAPI")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+    public String handleFileAPIUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 
         String ocrResult = storageService.doOcr(file);
