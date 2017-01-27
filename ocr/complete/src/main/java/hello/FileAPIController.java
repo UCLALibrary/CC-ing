@@ -41,6 +41,11 @@ public class FileAPIController {
     public String handleFileUpload(@RequestParam(value="file", required=true) MultipartFile file) {
         return storageService.doOcr(file);
     }
+
+    @RequestMapping(method=RequestMethod.POST, value="/imageURL")
+    public String handleFileURL(@RequestParam(value="imageURL", required=true) String imageURL) {
+        return storageService.doOcr(imageURL);
+    }
     
     @RequestMapping(method=RequestMethod.DELETE, value="{id}")
     public void delete(@PathVariable String id) {

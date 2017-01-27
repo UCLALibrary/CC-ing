@@ -9,12 +9,16 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import net.sourceforge.tess4j.*;
 
+import java.util.stream.Stream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.stream.Stream;
 
 @Service
 public class FileSystemStorageService implements StorageService {
@@ -62,6 +66,64 @@ public class FileSystemStorageService implements StorageService {
         } catch (TesseractException e) {
             throw new StorageException("Failed to ocr file " + file.getOriginalFilename(), e);
         }
+    }
+
+    public File downloadImageURL(String imageURL, String destinationFile) throws IOException {
+        try {
+	    String extension = imageURL.substring(imageURL.lastIndexOf(".") + 1);
+	    if (!extension.equals("jpg") && !extension.equals("png")) {
+	        Exception e = new Exception("Invalid file type, must be jpg or png URL");
+		throw e;
+	    }
+	    URL url = new URL(imageURL);
+            InputStream is = url.openStream();
+            OutputStream os = new FileOutputStream(destinationFile);
+            
+            byte[] b = new byte[2048];
+            int length;
+            
+            while ((length = is.read(b)) != -1) {
+            	os.write(b, 0, length);
+            }
+            
+            is.close();
+            os.close();
+	    return new File(destinationFile);
+	}
+	catch (IndexOutOfBoundsException e) {
+            throw new IOException("URL is invalid: " + imageURL, e);
+	}
+	catch (IOException e) {
+            throw new IOException("Failed to retrieve or store file " + imageURL, e);
+	}
+	catch (Exception e) {
+            throw new IOException("Failed to retrieve or store file " + imageURL, e);
+	}
+    }
+
+    // Overloaded for OCR with URL input
+    @Override
+    public String doOcr(String imageURL) {
+        try {
+            if (imageURL.isEmpty()) {
+                throw new StorageException("Failed to retrieve URL" + imageURL);
+            }
+		
+            // Mark each uploaded file with UNIX epoch timestamp
+            long unixTime = System.currentTimeMillis() / 1000L;
+            String fileTimeStamped = this.rootLocation.resolve(Long.toString(unixTime) + "-" + imageURL.substring(imageURL.lastIndexOf('/')+1, imageURL.length())).toString();
+	    File file = downloadImageURL(imageURL, fileTimeStamped);
+
+            String text = this.OCR.doOCR(file);
+            return text;
+        } catch (IOException e) {
+            throw new StorageException("Failed to retrieve or store file " + imageURL, e);
+        } catch (TesseractException e) {
+            throw new StorageException("Failed to ocr file " + imageURL, e);
+        } catch (IndexOutOfBoundsException e) {
+            throw new StorageException("URL is invalid " + imageURL, e);
+	}
+	
     }
 
     @Override

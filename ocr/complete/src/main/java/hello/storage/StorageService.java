@@ -12,6 +12,8 @@ public interface StorageService {
 
     String doOcr(MultipartFile file);
 
+    String doOcr(String imageURL);
+
     void deleteAll();
 
 }
