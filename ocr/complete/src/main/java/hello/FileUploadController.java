@@ -33,10 +33,10 @@ public class FileUploadController {
 
     // Handle web page uploads
     @PostMapping("/")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam(value="languages", required=false) String languages,
                                    RedirectAttributes redirectAttributes) {
 
-        String ocrResult = storageService.doOcr(file);
+        String ocrResult = storageService.doOcr(file, languages);
         redirectAttributes.addFlashAttribute("message",
                 "OCR of " + file.getOriginalFilename() + " successful! Result is");
         redirectAttributes.addFlashAttribute("ocrResult",

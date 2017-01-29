@@ -38,13 +38,13 @@ public class FileAPIController {
     }
     
     @RequestMapping(method=RequestMethod.POST)
-    public String handleFileUpload(@RequestParam(value="file", required=true) MultipartFile file) {
-        return storageService.doOcr(file);
+    public String handleFileUpload(@RequestParam(value="file", required=true) MultipartFile file, @RequestParam(value="languages", required=false) String languages) {
+        return storageService.doOcr(file, languages);
     }
 
     @RequestMapping(method=RequestMethod.POST, value="/imageURL")
-    public String handleFileURL(@RequestParam(value="imageURL", required=true) String imageURL) {
-        return storageService.doOcr(imageURL);
+    public String handleFileURL(@RequestParam(value="imageURL", required=true) String imageURL, @RequestParam(value="languages", required=false) String languages) {
+        return storageService.doOcr(imageURL, languages);
     }
     
     @RequestMapping(method=RequestMethod.DELETE, value="{id}")

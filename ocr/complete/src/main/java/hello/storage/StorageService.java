@@ -10,9 +10,9 @@ public interface StorageService {
 
     void init();
 
-    String doOcr(MultipartFile file);
+    String doOcr(MultipartFile file, String languages);
 
-    String doOcr(String imageURL);
+    String doOcr(String imageURL, String languages);
 
     void deleteAll();
 

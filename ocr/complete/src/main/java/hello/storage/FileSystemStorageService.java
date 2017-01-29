@@ -46,7 +46,7 @@ public class FileSystemStorageService implements StorageService {
     }
 
     @Override
-    public String doOcr(MultipartFile file) {
+    public String doOcr(MultipartFile file, String languages) {
         try {
             if (file.isEmpty()) {
                 throw new StorageException("Failed to store empty file " + file.getOriginalFilename());
@@ -59,6 +59,13 @@ public class FileSystemStorageService implements StorageService {
             Files.copy(file.getInputStream(), Paths.get(fileTimeStamped));
             File imageFile = new File(fileTimeStamped);
 
+	    // Set language
+	    if (languages != null && !languages.isEmpty()) {
+		this.OCR.setLanguage(languages);
+	    }
+	    else {
+        	OCR.setLanguage("eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm");
+	    }
             String text = this.OCR.doOCR(imageFile);
             return text;
         } catch (IOException e) {
@@ -103,7 +110,7 @@ public class FileSystemStorageService implements StorageService {
 
     // Overloaded for OCR with URL input
     @Override
-    public String doOcr(String imageURL) {
+    public String doOcr(String imageURL, String languages) {
         try {
             if (imageURL.isEmpty()) {
                 throw new StorageException("Failed to retrieve URL" + imageURL);
@@ -114,6 +121,13 @@ public class FileSystemStorageService implements StorageService {
             String fileTimeStamped = this.rootLocation.resolve(Long.toString(unixTime) + "-" + imageURL.substring(imageURL.lastIndexOf('/')+1, imageURL.length())).toString();
 	    File file = downloadImageURL(imageURL, fileTimeStamped);
 
+	    // Set language
+	    if (languages != null && !languages.isEmpty()) {
+		this.OCR.setLanguage(languages);
+	    }
+	    else {
+        	OCR.setLanguage("eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm");
+	    }
             String text = this.OCR.doOCR(file);
             return text;
         } catch (IOException e) {
