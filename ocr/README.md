@@ -10,6 +10,10 @@ example command `curl -X POST http://ec2-54-173-153-28.compute-1.amazonaws.com:8
 Support for local image upload
 example command `curl -X POST http://ec2-54-173-153-28.compute-1.amazonaws.com:8080/fileAPI -F file=@<file location>`
 
+# Return format
+API calls is returned as GSON: https://sites.google.com/site/gson/gson-user-guide
+Metadata currently contains requested time in Epoch format, languagesUsed, and ocrResult
+
 # Spring Boot tutorial
 - https://spring.io/guides/gs/spring-boot/
 
