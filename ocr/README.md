@@ -1,6 +1,3 @@
-# Spring Boot tutorial
-- https://spring.io/guides/gs/spring-boot/
-
 # Examples
 
 Tesseract API:
@@ -12,3 +9,12 @@ example command `curl -X POST http://ec2-54-173-153-28.compute-1.amazonaws.com:8
 
 Support for local image upload
 example command `curl -X POST http://ec2-54-173-153-28.compute-1.amazonaws.com:8080/fileAPI -F file=@<file location>`
+
+# Spring Boot tutorial
+- https://spring.io/guides/gs/spring-boot/
+
+
+# M2E
+- maven clean and then maven install (maven build has no meaning)
+- download maven global indexes (http://stackoverflow.com/questions/24252256/how-do-i-enable-index-downloads-in-eclipse-for-maven-dependency-search). Make sure you also do this: http://stackoverflow.com/questions/14059685/eclipse-maven-search-dependencies-doesnt-work
+
