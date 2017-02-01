@@ -1,1 +1,11 @@
 Backend
+
+Tesseract API:
+Support for languages for both image upload and file link APIs. Use language keywords based on https://github.com/tesseract-ocr/tesseract/wiki/Data-Files, using multiple languages by delimiting with +
+example command `curl -X POST http://ec2-54-173-153-28.compute-1.amazonaws.com:8080/fileAPI/imageURL  -F imageURL=http://jeroenooms.github.io/images/testocr.png -F languages=lao+eng`
+
+Support for URL inputs via API! Currently takes jpg and png links
+example command `curl -X POST http://ec2-54-173-153-28.compute-1.amazonaws.com:8080/fileAPI/imageURL  -F imageURL=http://jeroenooms.github.io/images/testocr.png`
+
+Support for local image upload
+example command `curl -X POST http://ec2-54-173-153-28.compute-1.amazonaws.com:8080/fileAPI -F file=@<file location>`
