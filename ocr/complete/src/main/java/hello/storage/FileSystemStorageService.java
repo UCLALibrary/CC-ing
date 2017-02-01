@@ -10,6 +10,7 @@ import java.io.File;
 import net.sourceforge.tess4j.*;
 
 import java.util.stream.Stream;
+import java.util.HashMap;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -46,7 +47,7 @@ public class FileSystemStorageService implements StorageService {
     }
 
     @Override
-    public String doOcr(MultipartFile file, String languages) {
+    public HashMap<String, String> doOcr(MultipartFile file, String languages) {
         try {
             if (file.isEmpty()) {
                 throw new StorageException("Failed to store empty file " + file.getOriginalFilename());
@@ -59,15 +60,21 @@ public class FileSystemStorageService implements StorageService {
             Files.copy(file.getInputStream(), Paths.get(fileTimeStamped));
             File imageFile = new File(fileTimeStamped);
 
+	    String languagesUsed = languages;
 	    // Set language
 	    if (languages != null && !languages.isEmpty()) {
 		this.OCR.setLanguage(languages);
 	    }
 	    else {
         	OCR.setLanguage("eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm");
+		languagesUsed = "eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm";
 	    }
-            String text = this.OCR.doOCR(imageFile);
-            return text;
+            String ocrResult = this.OCR.doOCR(imageFile);
+	    HashMap results = new HashMap();
+	    results.put("ocrResult", ocrResult);
+	    results.put("languagesUsed", languagesUsed);
+	    results.put("Epoch Time", unixTime);
+	    return results;
         } catch (IOException e) {
             throw new StorageException("Failed to store file " + file.getOriginalFilename(), e);
         } catch (TesseractException e) {
@@ -110,7 +117,7 @@ public class FileSystemStorageService implements StorageService {
 
     // Overloaded for OCR with URL input
     @Override
-    public String doOcr(String imageURL, String languages) {
+    public HashMap<String, String> doOcr(String imageURL, String languages) {
         try {
             if (imageURL.isEmpty()) {
                 throw new StorageException("Failed to retrieve URL" + imageURL);
@@ -121,15 +128,21 @@ public class FileSystemStorageService implements StorageService {
             String fileTimeStamped = this.rootLocation.resolve(Long.toString(unixTime) + "-" + imageURL.substring(imageURL.lastIndexOf('/')+1, imageURL.length())).toString();
 	    File file = downloadImageURL(imageURL, fileTimeStamped);
 
+	    String languagesUsed = languages;
 	    // Set language
 	    if (languages != null && !languages.isEmpty()) {
 		this.OCR.setLanguage(languages);
 	    }
 	    else {
         	OCR.setLanguage("eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm");
+		languagesUsed = "eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm";
 	    }
-            String text = this.OCR.doOCR(file);
-            return text;
+            String ocrResult = this.OCR.doOCR(file);
+	    HashMap results = new HashMap();
+	    results.put("ocrResult", ocrResult);
+	    results.put("languagesUsed", languagesUsed);
+	    results.put("Epoch Time", unixTime);
+	    return results;
         } catch (IOException e) {
             throw new StorageException("Failed to retrieve or store file " + imageURL, e);
         } catch (TesseractException e) {

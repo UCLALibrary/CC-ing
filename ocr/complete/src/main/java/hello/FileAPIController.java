@@ -17,19 +17,24 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.util.stream.Collectors;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping(value = "/fileAPI")
 public class FileAPIController {     
 
     private final StorageService storageService;
+    private Gson gson;
 
     @Autowired
     public FileAPIController(StorageService storageService) {
         this.storageService = storageService;
+	this.gson = new Gson();
     }
 
     @RequestMapping(method=RequestMethod.GET)
@@ -39,12 +44,14 @@ public class FileAPIController {
     
     @RequestMapping(method=RequestMethod.POST)
     public String handleFileUpload(@RequestParam(value="file", required=true) MultipartFile file, @RequestParam(value="languages", required=false) String languages) {
-        return storageService.doOcr(file, languages);
+        HashMap<String, String> ocrResult = storageService.doOcr(file, languages);
+	return gson.toJson(ocrResult);
     }
 
     @RequestMapping(method=RequestMethod.POST, value="/imageURL")
     public String handleFileURL(@RequestParam(value="imageURL", required=true) String imageURL, @RequestParam(value="languages", required=false) String languages) {
-        return storageService.doOcr(imageURL, languages);
+        HashMap<String, String> ocrResult = storageService.doOcr(imageURL, languages);
+	return gson.toJson(ocrResult);
     }
     
     @RequestMapping(method=RequestMethod.DELETE, value="{id}")

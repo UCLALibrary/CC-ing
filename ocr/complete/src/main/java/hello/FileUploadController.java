@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.util.stream.Collectors;
+import java.util.HashMap;
 
 @Controller
 public class FileUploadController {
@@ -36,11 +37,11 @@ public class FileUploadController {
     public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam(value="languages", required=false) String languages,
                                    RedirectAttributes redirectAttributes) {
 
-        String ocrResult = storageService.doOcr(file, languages);
+        HashMap<String, String> ocrResult = storageService.doOcr(file, languages);
         redirectAttributes.addFlashAttribute("message",
                 "OCR of " + file.getOriginalFilename() + " successful! Result is");
         redirectAttributes.addFlashAttribute("ocrResult",
-                ocrResult);
+                ocrResult.get("ocrResult"));
 
         return "redirect:/";
     }

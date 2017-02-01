@@ -5,14 +5,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.file.Path;
 import java.util.stream.Stream;
+import java.util.HashMap;
 
 public interface StorageService {
 
     void init();
 
-    String doOcr(MultipartFile file, String languages);
+    HashMap<String, String> doOcr(MultipartFile file, String languages);
 
-    String doOcr(String imageURL, String languages);
+    HashMap<String, String> doOcr(String imageURL, String languages);
 
     void deleteAll();
 
