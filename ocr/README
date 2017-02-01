@@ -1,4 +1,7 @@
-Backend
+# Spring Boot tutorial
+- https://spring.io/guides/gs/spring-boot/
+
+# Examples
 
 Tesseract API:
 Support for languages for both image upload and file link APIs. Use language keywords based on https://github.com/tesseract-ocr/tesseract/wiki/Data-Files, using multiple languages by delimiting with +
