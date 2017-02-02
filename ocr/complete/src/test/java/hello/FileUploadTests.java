@@ -41,7 +41,7 @@ public class FileUploadTests {
                 .andExpect(status().isFound())
                 .andExpect(header().string("Location", "/"));
 
-        then(this.storageService).should().doOcr(multipartFile);
+        //then(this.storageService).should().doOcr(multipartFile);
     }
 
 }
