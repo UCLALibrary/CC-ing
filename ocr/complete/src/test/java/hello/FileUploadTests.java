@@ -1,7 +1,5 @@
 package hello;
 
-import hello.storage.StorageFileNotFoundException;
-import hello.storage.StorageService;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,6 +10,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+import textRecognitionAPI.storage.StorageFileNotFoundException;
+import textRecognitionAPI.storage.StorageService;
 
 import java.nio.file.Paths;
 import java.util.stream.Stream;

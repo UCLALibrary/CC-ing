@@ -1,4 +1,4 @@
-package hello.storage;
+package textRecognitionAPI.storage;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

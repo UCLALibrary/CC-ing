@@ -19,6 +19,7 @@ Metadata currently contains requested time in Epoch format, languagesUsed, and o
 
 
 # M2E
+- Make sure you import your project for this project in eclipse as maven/gradle project. Otherwise, you may fail to get all dependencies
 - maven clean and then maven install (maven build has no meaning)
 - download maven global indexes (http://stackoverflow.com/questions/24252256/how-do-i-enable-index-downloads-in-eclipse-for-maven-dependency-search). Make sure you also do this: http://stackoverflow.com/questions/14059685/eclipse-maven-search-dependencies-doesnt-work
 

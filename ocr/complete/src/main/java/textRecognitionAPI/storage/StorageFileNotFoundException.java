@@ -1,4 +1,4 @@
-package hello.storage;
+package textRecognitionAPI.storage;
 
 public class StorageFileNotFoundException extends StorageException {
 

@@ -1,7 +1,5 @@
-package hello;
+package textRecognitionAPI.controller;
 
-import hello.storage.StorageFileNotFoundException;
-import hello.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +17,9 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import textRecognitionAPI.storage.StorageFileNotFoundException;
+import textRecognitionAPI.storage.StorageService;
 
 import java.io.IOException;
 import java.util.stream.Collectors;
