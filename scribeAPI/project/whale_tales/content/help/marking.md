@@ -1,0 +1,1 @@
+**Mark** is used to identify specific pieces of data in the logs: the date, location, and what kind of sea ice was around the ship, for example. You need only to follow the prompts as best you can, and *if an item is already marked you can skip over it*. 

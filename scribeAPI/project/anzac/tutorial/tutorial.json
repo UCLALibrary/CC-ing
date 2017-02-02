@@ -1,0 +1,14 @@
+{
+    "name": "Tutorial",
+    "first_task": "welcome",
+    "tasks": {
+        "welcome": {
+            "next_task": null,
+            "help": {
+                "title": "Welcome to Measuring the ANZACs!",
+                "file": "one_slide_tutorial"
+            }
+        }
+
+    }
+}
