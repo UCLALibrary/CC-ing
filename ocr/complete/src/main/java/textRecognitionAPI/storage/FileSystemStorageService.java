@@ -35,7 +35,7 @@ public class FileSystemStorageService implements StorageService {
     private final String OCR_LANGUAGE;
     private final int OCR_ENGINE_MODE;
     private final int OCR_PAGE_MODE;
-    private final Tesseract OCR; 
+    private final TesseractCC OCR; 
     
 
     public File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException 
@@ -54,12 +54,8 @@ public class FileSystemStorageService implements StorageService {
         this.OCR_ENGINE_MODE = properties.getOcrEngineMode();
         this.OCR_PAGE_MODE = properties.getOcrPageMode();
         
-        
-        Tesseract OCR = new Tesseract();
-        OCR.setDatapath(TESS4J_FOLDER_PATH);
-        
-        // Languages list based on https://github.com/UCLALibrary/CC-ing/wiki/Books-and-languages-for-pilot
-        OCR.setLanguage("eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm");
+        // create the tesseract instance
+        TesseractCC OCR = new TesseractCC(TESS4J_FOLDER_PATH,OCR_LANGUAGE,OCR_ENGINE_MODE,OCR_PAGE_MODE);
         this.OCR = OCR;
     }
 

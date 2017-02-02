@@ -17,6 +17,7 @@ public class StorageProperties {
     private String tess4jDir = "/usr/share/tesseract-ocr/";
     
     // ----------- OCR setting
+    //Languages list based on https://github.com/UCLALibrary/CC-ing/wiki/Books-and-languages-for-pilot
     private String ocrLanguage = "eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm";
     // http://www.emgu.com/wiki/files/2.3.0/document/html/a4eee77d-90ad-4f30-6783-bc3ef71f8d49.htm
 	// 0-3, look like 2 is the best, both OEM and cube, slowest though
