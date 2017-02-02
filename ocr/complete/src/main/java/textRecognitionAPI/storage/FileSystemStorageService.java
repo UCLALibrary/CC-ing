@@ -6,10 +6,18 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.awt.image.BufferedImage;
 import java.io.File;
 import net.sourceforge.tess4j.*;
+import textRecognitionAPI.tesseractEngine.TesseractCC;
+import textRecognitionAPI.tesseractEngine.WordCC;
 
 import java.util.stream.Stream;
+
+import javax.imageio.ImageIO;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -76,20 +84,40 @@ public class FileSystemStorageService implements StorageService {
 			Files.copy(file.getInputStream(), Paths.get(fileTimeStamped));
 			File imageFile = new File(fileTimeStamped);
 
-			String languagesUsed = languages;
 			// Set language
+			String languagesUsed = languages;			
 			if (languages != null && !languages.isEmpty()) {
 				OCRcc.setLanguage(languages);
 			} else {
 				OCRcc.setLanguage(OCR_LANGUAGE);
 				languagesUsed = OCR_LANGUAGE;
 			}
-			String ocrResult = OCRcc.doOCR(imageFile);
+			
+			// Perform normal OCR and get string
+			String ocrResult = OCRcc.doOCR(imageFile); // get all the string
+			
+			// Perform OCR and get word bounding boxes.
+			// 02/02/17 For now, return the bounding box string, you can always return the bounding box information as well
+			BufferedImage bImg = ImageIO.read(imageFile);
+			ArrayList<Word> ocrWords = (ArrayList<Word>) OCRcc.getWords(bImg, ITessAPI.TessPageIteratorLevel.RIL_WORD);
+			StringBuilder ocrDetailResult = new StringBuilder();
+			for (Word w:ocrWords){
+				ocrDetailResult.append(w.getText());
+				ocrDetailResult.append("\t");
+				ocrDetailResult.append(w.getBoundingBox().toString());
+				ocrDetailResult.append("\n");
+			}
+			
+						
+			// Store the result into hashmap
 			HashMap results = new HashMap();
-			results.put("ocrResult", ocrResult);
+			results.put("ocrResult", ocrDetailResult.toString());
 			results.put("languagesUsed", languagesUsed);
 			results.put("Epoch Time", unixTime);
+			results.put("ocrDetailResult", ocrDetailResult.toString());
+			
 			return results;
+			
 		} catch (IOException e) {
 			throw new StorageException("Failed to store file " + file.getOriginalFilename(), e);
 		} catch (TesseractException e) {

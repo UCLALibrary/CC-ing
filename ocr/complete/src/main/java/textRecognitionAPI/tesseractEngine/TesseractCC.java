@@ -1,6 +1,7 @@
-package textRecognitionAPI.storage;
+package textRecognitionAPI.tesseractEngine;
 
 import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.Word;
 
 /**
  * Extension of Tess4j Tesseract api in CC-ing project
