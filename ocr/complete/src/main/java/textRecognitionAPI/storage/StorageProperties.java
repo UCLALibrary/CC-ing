@@ -22,7 +22,9 @@ public class StorageProperties {
 	private String ocrLanguage = "eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm";
 	// http://www.emgu.com/wiki/files/2.3.0/document/html/a4eee77d-90ad-4f30-6783-bc3ef71f8d49.htm
 	// 0-3, look like 2 is the best, both OEM and cube, slowest though
-	private int ocrEngineMode = 2;
+	// Cube use neural network, but not all langauge are supported!
+	// TODO: identify when to use OEM and when to use cube (with different lanuage
+	private int ocrEngineMode = 0;
 	// 0-10, default page mode = 3, i.e., Fully automatic page segmentation, but
 	// no OSD.
 	private int ocrPageMode = 3;
