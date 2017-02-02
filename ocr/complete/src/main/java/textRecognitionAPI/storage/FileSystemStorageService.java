@@ -36,7 +36,7 @@ public class FileSystemStorageService implements StorageService {
 	private final String OCR_LANGUAGE;
 	private final int OCR_ENGINE_MODE;
 	private final int OCR_PAGE_MODE;
-	private final TesseractCC OCR;
+	private final TesseractCC OCRcc;
 
 	public File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException {
 		File convFile = new File(multipart.getOriginalFilename());
@@ -54,10 +54,13 @@ public class FileSystemStorageService implements StorageService {
 		this.OCR_PAGE_MODE = properties.getOcrPageMode();
 
 		// create the tesseract instance
-		TesseractCC OCR = new TesseractCC(TESS4J_FOLDER_PATH, OCR_LANGUAGE, OCR_ENGINE_MODE, OCR_PAGE_MODE);
-		this.OCR = OCR;
+		TesseractCC OCRcc = new TesseractCC(TESS4J_FOLDER_PATH, OCR_LANGUAGE, OCR_ENGINE_MODE, OCR_PAGE_MODE);
+		this.OCRcc = OCRcc;
 	}
 
+	/**
+	 * Do ocr based on uploaded images
+	 */
 	@Override
 	public HashMap<String, String> doOcr(MultipartFile file, String languages) {
 		try {
@@ -76,12 +79,12 @@ public class FileSystemStorageService implements StorageService {
 			String languagesUsed = languages;
 			// Set language
 			if (languages != null && !languages.isEmpty()) {
-				this.OCR.setLanguage(languages);
+				OCRcc.setLanguage(languages);
 			} else {
-				OCR.setLanguage(OCR_LANGUAGE);
+				OCRcc.setLanguage(OCR_LANGUAGE);
 				languagesUsed = OCR_LANGUAGE;
 			}
-			String ocrResult = this.OCR.doOCR(imageFile);
+			String ocrResult = OCRcc.doOCR(imageFile);
 			HashMap results = new HashMap();
 			results.put("ocrResult", ocrResult);
 			results.put("languagesUsed", languagesUsed);
@@ -94,6 +97,13 @@ public class FileSystemStorageService implements StorageService {
 		}
 	}
 
+	/**
+	 * Donwload the given image
+	 * @param imageURL
+	 * @param destinationFile
+	 * @return
+	 * @throws IOException
+	 */
 	public File downloadImageURL(String imageURL, String destinationFile) throws IOException {
 		try {
 			String extension = imageURL.substring(imageURL.lastIndexOf(".") + 1);
@@ -124,7 +134,9 @@ public class FileSystemStorageService implements StorageService {
 		}
 	}
 
-	// Overloaded for OCR with URL input
+	/**
+	 * Overload OCR with url instead of the file
+	 */
 	@Override
 	public HashMap<String, String> doOcr(String imageURL, String languages) {
 		try {
@@ -141,12 +153,12 @@ public class FileSystemStorageService implements StorageService {
 			String languagesUsed = languages;
 			// Set language
 			if (languages != null && !languages.isEmpty()) {
-				this.OCR.setLanguage(languages);
+				OCRcc.setLanguage(languages);
 			} else {
-				OCR.setLanguage("eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm");
-				languagesUsed = "eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm";
+				OCRcc.setLanguage(OCR_LANGUAGE);
+				languagesUsed = OCR_LANGUAGE;
 			}
-			String ocrResult = this.OCR.doOCR(file);
+			String ocrResult = OCRcc.doOCR(file);
 			HashMap results = new HashMap();
 			results.put("ocrResult", ocrResult);
 			results.put("languagesUsed", languagesUsed);
