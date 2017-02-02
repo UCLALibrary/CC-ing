@@ -55,6 +55,8 @@ public class FileUploadController {
                 "OCR of " + file.getOriginalFilename() + " successful! Result is");
         redirectAttributes.addFlashAttribute("ocrResult",
                 ocrResult.get("ocrResult"));
+        redirectAttributes.addFlashAttribute("ocrDetailResult",
+        		ocrResult.get("ocrDetailResult"));
 
         return "redirect:/";
     }

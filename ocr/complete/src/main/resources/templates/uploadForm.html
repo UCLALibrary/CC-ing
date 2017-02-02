@@ -9,6 +9,11 @@
 		<h2 th:text="${ocrResult}"/>
         </pre>
 	</div>
+	<div th:if="${ocrDetailResult}">
+        <pre>
+		<h2 th:text="${ocrDetailResult}"/>
+        </pre>
+	</div>
 
 	<div>
 		<form method="POST" enctype="multipart/form-data" action="/">

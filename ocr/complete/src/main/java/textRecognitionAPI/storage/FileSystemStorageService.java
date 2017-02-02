@@ -98,23 +98,14 @@ public class FileSystemStorageService implements StorageService {
 			
 			// Perform OCR and get word bounding boxes.
 			// 02/02/17 For now, return the bounding box string, you can always return the bounding box information as well
-			BufferedImage bImg = ImageIO.read(imageFile);
-			ArrayList<Word> ocrWords = (ArrayList<Word>) OCRcc.getWords(bImg, ITessAPI.TessPageIteratorLevel.RIL_WORD);
-			StringBuilder ocrDetailResult = new StringBuilder();
-			for (Word w:ocrWords){
-				ocrDetailResult.append(w.getText());
-				ocrDetailResult.append("\t");
-				ocrDetailResult.append(w.getBoundingBox().toString());
-				ocrDetailResult.append("\n");
-			}
-			
-						
+			String ocrDetailResult = OCRcc.doOCRByWords(imageFile);
+									
 			// Store the result into hashmap
 			HashMap results = new HashMap();
-			results.put("ocrResult", ocrDetailResult.toString());
+			results.put("ocrResult", ocrResult);
 			results.put("languagesUsed", languagesUsed);
 			results.put("Epoch Time", unixTime);
-			results.put("ocrDetailResult", ocrDetailResult.toString());
+			results.put("ocrDetailResult", ocrDetailResult);
 			
 			return results;
 			
@@ -186,11 +177,18 @@ public class FileSystemStorageService implements StorageService {
 				OCRcc.setLanguage(OCR_LANGUAGE);
 				languagesUsed = OCR_LANGUAGE;
 			}
+			
+			// do ocrs
 			String ocrResult = OCRcc.doOCR(file);
+			String ocrDetailResult = OCRcc.doOCRByWords(file);
+			
+			// store the result
 			HashMap results = new HashMap();
 			results.put("ocrResult", ocrResult);
 			results.put("languagesUsed", languagesUsed);
 			results.put("Epoch Time", unixTime);
+			results.put("ocrDetailResult", ocrDetailResult);
+			
 			return results;
 		} catch (IOException e) {
 			throw new StorageException("Failed to retrieve or store file " + imageURL, e);
