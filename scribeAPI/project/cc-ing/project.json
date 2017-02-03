@@ -1,9 +1,9 @@
 {
-  "title": "Emigrant City",
-  "short_title": "Emigrant",
+  "title": "Community Cataloguing",
+  "short_title": "CC-ing",
   "summary": "Join us in transcribing 19th century real estate records from the Emigrant Savings Bank.",
   "background": "/images/background.jpg",
-  "admin_email": "paulbeaudoin@nypl.org",
+  "admin_email": "matthewallenlin@gmail.com",
   "logo": "/images/logo.png",
   "favicon": "/images/favicon.ico",
   "privacy_policy": "http://www.nypl.org/help/about-nypl/legal-notices/privacy-policy",
@@ -14,30 +14,66 @@
     "mark": "region"
   },
   "team_emails": [
-    "brianfoo@nypl.org",
-    "willaarmstrong@nypl.org",
-    "mattknutzen@nypl.org",
+    "matthewallenlin@gmail.org",
+    "arkox617@gmail.com",
+    "dalarm@g.ucla.edu",
     "shanakimball@nypl.org",
     "benjaminvershbow@nypl.org"
   ],
   "team": [
     {
-      "name": "Brian Foo",
-      "role": "Code DJ",
-      "organization": "NYPL"
+      "name": "Matthew Lin",
+      "role": "Software Developer",
+      "organization": "BuildUCLA"
     },
 
     {
-      "name": "Paul Beaudoin",
-      "role": "shoehorn",
-      "organization": "NYPL"
+      "name": "Arko Dewri",
+      "role": "Software Developer",
+      "organization": "BuildUCLA"
+    },
+
+    {
+      "name": "Johnny Ho",
+      "role": "Software Developer",
+      "organization": "BuildUCLA"
+    },
+
+    {
+      "name": "Jeffrey Qiu",
+      "role": "Software Developer",
+      "organization": "BuildUCLA"
+    },
+
+    {
+      "name": "Ankur Papneja",
+      "role": "Software Developer",
+      "organization": "BuildUCLA"
+    },
+
+    {
+      "name": "DaLarm Han",
+      "role": "Software Developer",
+      "organization": "BuildUCLA"
+    },
+
+    {
+      "name": "Kenta Onimura",
+      "role": "Software Developer",
+      "organization": "BuildUCLA"
+    },
+
+    {
+      "name": "Jasmine Kim",
+      "role": "Software Developer",
+      "organization": "BuildUCLA"
     }
   ],
   "organizations": [
     {
-      "title": "NYPL",
-      "description": "Books, mostly.",
-      "url":"http://nypl.org",
+      "title": "BuildUCLA",
+      "description": "Cataloguing books",
+      "url":"http://www.library.ucla.edu/powell",
       "logo": "http://cdn-prod.www.aws.nypl.org/sites/all/themes/nypl_new/images/main-logo.png"
     }
   ],
