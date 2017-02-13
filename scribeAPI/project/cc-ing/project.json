@@ -1,5 +1,5 @@
 {
-  "title": "Community Cataloguing",
+  "title": "Community Cataloging",
   "short_title": "CC-ing",
   "summary": "Join us in transcribing 19th century real estate records from the Emigrant Savings Bank.",
   "background": "/images/background.jpg",
@@ -72,7 +72,7 @@
   "organizations": [
     {
       "title": "BuildUCLA",
-      "description": "Cataloguing books",
+      "description": "Cataloging books",
       "url":"http://www.library.ucla.edu/powell",
       "logo": "http://cdn-prod.www.aws.nypl.org/sites/all/themes/nypl_new/images/main-logo.png"
     }
