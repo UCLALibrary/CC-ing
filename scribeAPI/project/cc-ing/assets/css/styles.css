@@ -179,6 +179,7 @@ div.home-page {
   text-transform: uppercase;
   padding-bottom: 0px;
   white-space: nowrap;
+  margin-left: -100px;
 }
 .home-page .page-content > div {
   max-width: 940px;
