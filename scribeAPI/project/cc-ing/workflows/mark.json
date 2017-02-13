@@ -21,7 +21,7 @@
           {"type": "rectangleTool", "label": "Author", "color": "red", "generates_subject_type": "em_record_date", "help": {"file": "m_record_date"}},
           {"type": "rectangleTool", "label": "Title", "color": "blue", "generates_subject_type": "em_record_number", "help":  {"file": "m_record_number"}},
           {"type": "rectangleTool", "label": "Publisher", "color": "darkorange", "generates_subject_type": "em_record_mortgager", "help": {"file": "m_record_mortgager"}},
-          {"type": "rectangleTool", "label": "Publisher Year", "color": "magenta", "generates_subject_type": "em_record_street_address", "help": {"file": "m_record_street_address"}},
+          {"type": "rectangleTool", "label": "Publisher Year", "color": "magenta", "generates_subject_type": "em_record_street_address", "help": {"file": "m_record_street_address"}}
         ]
       },
       "next_task": null
