@@ -1,0 +1,15 @@
+{
+  "groups": [{
+    "name": "storage",
+    "type": "hello.storage.StorageProperties",
+    "sourceType": "hello.storage.StorageProperties"
+  }],
+  "properties": [{
+    "name": "storage.location",
+    "type": "java.lang.String",
+    "description": "Folder location for storing files",
+    "sourceType": "hello.storage.StorageProperties",
+    "defaultValue": "/var/tmp/tessFiles"
+  }],
+  "hints": []
+}
