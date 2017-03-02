@@ -1,7 +1,7 @@
 .home-page
   background-color: inherit
   color:  #efefef;
-  font-size: 23px;/* Approximation due to font substitution */
+  font-size: 20px;/* Approximation due to font substitution */
   font-weight: 300;
   line-height: 68px;/* Approximation due to font substitution */
   margin 10px auto
@@ -9,7 +9,7 @@
   h1
     font-family: clarendon-text-pro
     font-weight: 100;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-align: center
     color:  #ffffff;
     margin-bottom: 0%
@@ -23,8 +23,7 @@
   p
     font-family: ProximaNova, 'Helvetica Neue'
     font-size: 100%
-    line-height: 1.5
-    letter-spacing: 0.02em
+    letter-spacing: 0.03em
 
   p, li, h1, h2, h3, hr
     color white
@@ -91,3 +90,6 @@
 
   ul  
     list-style none
+
+.innerHTML
+	
