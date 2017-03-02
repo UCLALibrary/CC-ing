@@ -1,18 +1,19 @@
-## Emigrant City
+## Community Cataloging
 
 ### Contact information
-Questions? Comments? Contact us at matthewallenlin@gmail.com or reach out to us on [Twitter](https://twitter.com/nypl_labs).
+Questions? Comments? Contact ucla.ccing@gmail.com!
 
 ### About Community Cataloging
 
-The goal of the Community Cataloging project is to help the UCLA Library to catalog a large collection of foreign-language books that have not been processed due to a shortage of specialists in the library who are experts in the books' languages. By providing images of the books' title pages and in-publication data pages for transcription via the NYPL Labs/Zooniverse Scribe tool, the Community Cataloging site will enable language experts from the greater UCLA community to assist in the cataloging of these volumes. Community Cataloging also involves the use of advanced optical character recognition (OCR) software to help detect the languages used in particular books and to provide trial transcriptions of their title pages that human experts may then correct, tag, and verify.
+The goal of the Community Cataloging project is to help the UCLA Library catalog a large collection of foreign-language books that have not been processed due to a shortage of specialists in the library who are experts in the books' languages. By providing images of the books' title pages and in-publication data pages for transcription via the Zooniverse Scribe tool, the Community Cataloging site will enable language experts from the greater UCLA community to assist in the cataloging of these volumes. Community Cataloging also involves the use of advanced optical character recognition (OCR) software to help detect the languages used in particular books and to provide trial transcriptions of their title pages that human experts may then correct, tag, and verify.
 
 This project involves tying together a couple off-the-shelf software components: Tesseract for OCR in multiple languages, and Scribe for crowdsourced image tagging and transcription. The expected workflow is as follows:
-1. workers take photos of the title pages and publication pages of the books and upload them to a server
-2. a script on the server run OCR on the books to identify text blocks on the cover and transcribe them
-3. using Scribe's web interface, language experts fix or approve the transcriptions and tag the text blocks as “title,” “author,” etc.
-4. these tags and the OCR'd texts are automatically combined to make a library catalog record for the book, which can be imported into the library catalog system
-The codebase is most likely Ruby on rails, nodeJS, Java, and Mongodb.
+1. Photos are taken of the title pages and publication pages of the books; images are uploaded to a server
+2. A script on the server run OCR on the books to identify text blocks on the cover and transcribe them
+3. Using Scribe's web interface, language experts fix or approve the transcriptions and tag the text blocks as “title,” “author,” etc.
+4. These tags and the OCR'd texts are automatically combined to make a library catalog record for the book, which can be imported into the library catalog system
+
+The codebase is most likely Ruby on Rails, Node.js, Java, and MongoDB.
 
 ### About BuildUCLA
 BuildUCLA is a software development program coordinated by the UCLA Library. As participants in BuildUCLA, groups of UCLA undergraduate and graduate students work in teams to develop software applications meant to enhance library collections and improve student experiences with the library.
