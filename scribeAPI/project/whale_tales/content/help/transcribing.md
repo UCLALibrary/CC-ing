@@ -1,1 +1,0 @@
-**Transcribe** allows you to type in the information that you and your virtual shipmates have marked. You can do this after each mark (click the icon on the lower right corner of a box), or once the page is completely marked. If transcribing is your thing, you can also just do that by selecting the transcribe option on the ‘vessels’ page. 

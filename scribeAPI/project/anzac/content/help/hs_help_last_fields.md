@@ -1,1 +1,0 @@
-These fields will often include details about location, cause, and date. Often you can find these fields at the bottom of a History Sheet.
