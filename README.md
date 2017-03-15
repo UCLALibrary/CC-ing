@@ -1,5 +1,8 @@
 # CC-ing
-This is a product for catloging library books.
+This is a product for catloging library books from images of book covers.
+
+## ScribeAPI
+- Crowdsourced Transcription
 
 ## Java Backend Setup
 - Maven 
@@ -7,4 +10,5 @@ This is a product for catloging library books.
 - Tesseract 
 
 ## Resources
-- OCR Engine in Swift using neural network, https://github.com/garnele007/SwiftOCR
+- OCR Engine in Swift using neural network:
+  https://github.com/garnele007/SwiftOCR
