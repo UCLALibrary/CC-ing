@@ -8,4 +8,5 @@ fi
 
 ln -fs /config/* ./config/
 
-exec bundle exec rails server -p 80
+bundle exec rails server -p 80 & python image_handling.py
+
