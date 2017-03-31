@@ -51,13 +51,19 @@ while(True):
             if imageFile.endswith(".jpg"):
                 url = base_url + imageFile
                 if url not in file_contents:
-                    to_write = url + ",100,100\n"
-#                    scribeFile.write(to_write)
+                    to_write = url + ",100,100"
+#                    scribeFile.write(to_write + "\n)
                     print to_write
 
                     # initiate OCR
-                    r = requests.post(OCR_POST_URL, data={'imageURL': url})
-                    print r.json()
-
+                    try:
+                        r = requests.post(OCR_POST_URL, data={'imageURL': url})
+                    except:
+                        print "ERROR !!! - Could not OCR image at", url
+                        print "Skipping this image"
+                    else:
+                        print r.json(), "\n"
+                        
+                        
 # end while
 
