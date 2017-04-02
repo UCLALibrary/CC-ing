@@ -290,7 +290,7 @@ div.home-page {
 .rectangle-tool .draggable .resize-button {
   fill: #37464f;
   stroke: #efefef;
-  r: 18;
+  r: 1;
 }
 .rectangle-tool .draggable .resize-button:hover {
   fill: #8cbc8c;
