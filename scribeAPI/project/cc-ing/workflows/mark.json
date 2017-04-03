@@ -1,7 +1,8 @@
 {
   "name":"mark",
   "label":"Mark Workflow",
-  "subject_fetch_limit":"10",
+  "retire_limit": 1,
+  "subject_fetch_limit":"3",
   "generates_subjects": true,
   "generates_subjects_for": "transcribe",
 
@@ -10,7 +11,7 @@
   "tasks": {
     "mark_primary": {
       "tool": "pickOneMarkOne",
-      "instruction": "",
+      "instruction": "Use the marking tool to make rectangles around the author(s) and title.",
       "generates_subjects": true,
       "help": {
         "file": "mark_primary"
@@ -18,10 +19,14 @@
       "tool_config" : {
         "displays_transcribe_button": false,
         "options": [
-          {"type": "rectangleTool", "label": "Author", "color": "red", "generates_subject_type": "em_record_date", "help": {"file": "m_record_date"}},
-          {"type": "rectangleTool", "label": "Title", "color": "blue", "generates_subject_type": "em_record_number", "help":  {"file": "m_record_number"}},
-          {"type": "rectangleTool", "label": "Publisher", "color": "darkorange", "generates_subject_type": "em_record_mortgager", "help": {"file": "m_record_mortgager"}},
-          {"type": "rectangleTool", "label": "Publisher Year", "color": "magenta", "generates_subject_type": "em_record_street_address", "help": {"file": "m_record_street_address"}}
+            {"type": "rectangleTool",
+	     "label": "Author",
+	     "color": "red",
+	     "generates_subject_type": "em_author"},
+            {"type": "rectangleTool",
+	     "label": "Title",
+	     "color": "blue",
+	     "generates_subject_type": "em_title"}
         ]
       },
       "next_task": null
