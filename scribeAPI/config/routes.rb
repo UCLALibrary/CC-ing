@@ -1,5 +1,9 @@
 API::Application.routes.draw do
-
+  resources :uploads, only: [:index, :new, :create, :destroy]
+  get "uploads/index"
+  get "uploads/new"
+  get "uploads/create"
+  get "uploads/destroy"
   root :to => "home#index"
 
   devise_for :users, :controllers => {:registrations => "registrations",

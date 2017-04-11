@@ -1,24 +1,20 @@
-Upload files here!
+## Upload files here!
 
 <!-- TODO -->
-<% if !@resume.errors.empty? %>
-   <div class = "alert alert-error">
-      
-      <ul>
-         <% @resume.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-         <% end %>
-      </ul>
-      
-   </div>
-<% end %>
+<!DOCTYPE html>
+<html>
+   
+   <head>
+      <title>Tutorialspoint</title>
+      <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+      <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+      <%= csrf_meta_tags %>
+   </head>
+   
+   <body>
+      <div class = "container" style = "padding-top:20px;">
+         <%= yield %>
+      </div>
+   </body>
 
-<div class = "well">
-   <%= form_for @resume, html: { multipart: true } do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.label :attachment %>
-      <%= f.file_field :attachment %>
-      <%= f.submit "Save", class: "btn btn-primary" %>
-   <% end %>
-</div>
+</html>
