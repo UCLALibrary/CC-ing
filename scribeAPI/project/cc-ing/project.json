@@ -80,7 +80,8 @@
     "main": [
       {"label": "Intro", "page": "intro"},
       {"label": "Data", "page": "data"},
-      {"label": "About", "page": "about"}
+      {"label": "About", "page": "about"},
+      {"label": "Upload", "page": "upload"}
     ],
     "footer": []
   }
