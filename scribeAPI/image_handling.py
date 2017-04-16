@@ -56,34 +56,34 @@ while(True):
                     to_write = url + ",100,100"
                     
                     # initiate OCR
-                    print "OCR'ing url", url, "..." 
-                    try:
-                        r = requests.post(OCR_POST_URL, data={'imageURL': url})
-                        print r.json()
-                    except:
-                        print "ERROR !!! - Could not OCR image at", url, "\n"
-                        to_ocr.append(url)
-                    else:
-                        scribeFile.write(to_write + "\n")
-                        print "Successfully OCR'd image and added to Scribe!", "\n"  
+#                    print "OCR'ing url", url, "..." 
+#                    try:
+#                        r = requests.post(OCR_POST_URL, data={'imageURL': url})
+#                        print r.json()
+#                    except:
+#                        print "ERROR !!! - Could not OCR image at", url, "\n"
+                    to_ocr.append(url)
+#                    else:
+                    scribeFile.write(to_write + "\n")
+#                        print "Successfully OCR'd image and added to Scribe!", "\n"  
 
         # attempt to ocr images that failed in past
         temp = []
         for url in to_ocr:
             to_write = url + ",100,100"
-            print "OCR'ing url", url, "..." 
-            try:
-                r = requests.post(OCR_POST_URL, data={'imageURL': url})
-                print r.json()
-            except:
-                print "ERROR !!! - Could not OCR image at", url, "\n"
-                temp.append(url)
-            else:
-                scribeFile.write(to_write + "\n")
-                print "Successfully OCR'd image and added to Scribe!", "\n"  
+#            print "OCR'ing url", url, "..." 
+#            try:
+#                r = requests.post(OCR_POST_URL, data={'imageURL': url})
+#                print r.json()
+#            except:
+#               print "ERROR !!! - Could not OCR image at", url, "\n"
+            temp.append(url)
+#           else:
+            scribeFile.write(to_write + "\n")
+#               print "Successfully OCR'd image and added to Scribe!", "\n"  
         to_ocr.extend(temp)
 
-    subprocess.call(['rake', 'project:load[cc-ing, subjects]'])
+#   subprocess.call(['rake', 'project:load[cc-ing, subjects]'])
         
 # end while
 
