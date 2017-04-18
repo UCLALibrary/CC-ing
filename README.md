@@ -13,3 +13,6 @@ This is a product for catloging library books from images of book covers.
 ## Resources
 - OCR Engine in Swift using neural network:
   https://github.com/garnele007/SwiftOCR
+
+## Downloading
+ To download, you need to run "git clone --recursive https://github.com/UCLALibrary/CC-ing.git". This is because we have a submodule for the django-rest-imageupload folder.
