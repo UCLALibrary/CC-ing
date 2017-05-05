@@ -1,3 +1,6 @@
 [submodule "scribeAPI"]
 	path = scribeAPI
 	url = https://github.com/zooniverse/scribeAPI.git
+[submodule "django-rest-imageupload"]
+	path = django-rest-imageupload
+	url = https://github.com/ChristianKreuzberger/django-rest-imageupload-example.git
