@@ -13,6 +13,7 @@
       "tool": "pickOneMarkOne",
       "instruction": "Use the marking tool to make rectangles around the author(s) and title.",
       "generates_subjects": true,
+      "export_name": "Markings",
       "help": {
         "file": "mark_primary"
       },
@@ -29,7 +30,7 @@
 	     "generates_subject_type": "em_title"}
         ]
       },
-      "next_task": null
+	"next_task": null
     },
 
     "completion_assessment_task": {
