@@ -1,6 +1,6 @@
 
 # CC-ing
-This is a product for catloging library books from images of book covers.
+This is a product for cataloging library books from images of book covers.
 
 ## ScribeAPI
 - Crowdsourced Transcription
