@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'imageupload',
     'imageupload_rest',
-    'imageupload_frontend'
+    'imageupload_frontend',
 ]
 
 MIDDLEWARE = [
@@ -123,5 +123,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'uploaded_media')
+MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'sample_images')
+
+
+INSTALLED_APPS += ('lockdown', )
+MIDDLEWARE += ('lockdown.middleware.LockdownMiddleware', )
+LOCKDOWN_PASSWORDS = ('password123', )
+LOCKDOWN_FORM = 'lockdown.forms.LockdownForm'
 MEDIA_URL = '/media/'
