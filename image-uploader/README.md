@@ -17,12 +17,12 @@ Installation Steps if you want to try it out
 git clone https://github.com/ChristianKreuzberger/django-rest-imageupload-example.git
 cd django-rest-imageupload-example
 mkdir uploaded_media # create a directory for the uploaded images
-virtualenv -p python3.4 venv # Note: python3.5 should also work
+virtualenv -p python3.4 venv # Note: python3.5 should also work; replace version with your version of python
 source venv/bin/activate
 pip install -r requirements.txt
 cd django_rest_imageupload_backend
-python manage.py migrate
-python manage.py runserver # starts the server 
+python manage.py migrate # To be safe, append your version of python to command, e.g. python3.6
+python manage.py runserver # starts the server # ditto
 ```
 
 ## Requirements
@@ -40,3 +40,5 @@ ToDo
 This repo is using the [MIT licence](LICENSE) and only serves an educational purpose. Feel free to do clone, modify and share this repository.
 If you find an error or have questions, feel free to write comments or raise an issue. If you want to contribute, feel free to hand in a 
 pull-request.
+
+All credits to https://github.com/ChristianKreuzberger
