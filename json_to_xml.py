@@ -22,7 +22,7 @@ obj = page.json()
 dataDict = []
 
 author = []
-title = [] 
+titles = {} 
 
 #  To handle dictionary of list of dictionary
 for key, value in obj.items():
@@ -43,16 +43,14 @@ for key, value in obj.items():
 				author.append(value[count]["data"]["values"][0]["value"])
 			
 			if(value[count]["type"] == "em_transcribed_title"):
-				title.append(value[count]["data"]["values"][0]["value"])
+				titles[str(value[count]["data"]["values"][0]["value"])] = 1
 			
 			count += 1
 			print("\n\n\n\n\n")
 
 
 print("author: " + str(author))
-print ("title: " + str(title))
-
-
+print ("title: " + str(titles))
 
 
 # print(obj)
