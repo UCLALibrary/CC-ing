@@ -67,14 +67,24 @@ for key, value in obj.items():
 		dataDict["title"].append(titles)
 
 	# Now, we have all the assorted metadata
+
 	for key, value in dataDict.items():
 		cleanedJSON = json.dumps(value, separators=(',', ':'))
 
 		print ("key: " + str(key))
 		print("value: " + str(value))
 
-# print(obj)
-# print("\n\n\n\n\n\n\n\n\n\n")
+		# filename = "./ucla_engineering/{}".format(key) + ".txt"
+		# os.makedirs(os.path.dirname(filename), exist_ok=True)
+		# with open(filename, "w") as f:
+		# 	f.write(menuJSON)
+		# 	f.close()
 
-#xml = dicttoxml.dicttoxml(obj)
-#print(xml)
+	loadedJSON = json.loads(cleanedJSON)
+
+# print(obj)
+print("\n\n\n\n\n\n\n\n\n\n")
+
+
+xml = dicttoxml.dicttoxml(loadedJSON)
+print(xml)
