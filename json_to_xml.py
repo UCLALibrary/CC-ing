@@ -80,11 +80,10 @@ for key, value in obj.items():
 		# 	f.write(menuJSON)
 		# 	f.close()
 
-	loadedJSON = json.loads(cleanedJSON)
+		loadedJSON = json.loads(cleanedJSON)
+
+		xml = dicttoxml.dicttoxml(loadedJSON)
+		print(xml)
+		print("\n\n")
 
 # print(obj)
-print("\n\n\n\n\n\n\n\n\n\n")
-
-
-xml = dicttoxml.dicttoxml(loadedJSON)
-print(xml)
