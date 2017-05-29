@@ -21,6 +21,8 @@ obj = page.json()
 # Most popular image for title
 dataDict = []
 
+title = [] 
+
 #  To handle dictionary of list of dictionary
 for key, value in obj.items():
 	# data is the only meaningful key
@@ -33,12 +35,16 @@ for key, value in obj.items():
 		count = 0
 		for i in value:
 			print("i: " + str(i))
-
 			print("ID of the image: " + str(value[count]["subject_set_id"]))
-			print("URL:" + str(value[count]["location"]["standard"])) 	
-		
+			print("URL:" + str(value[count]["location"]["standard"]))
+			if(value[count]["type"] == "em_transcribed_title"):
+				title.append(value[count]["data"]["values"][0]["value"])
 			count += 1
 			print("\n\n\n\n\n")
+
+
+
+print title
 
 
 
