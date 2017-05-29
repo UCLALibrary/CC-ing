@@ -1,10 +1,18 @@
 import json
 import urllib
 import dicttoxml
+import requests
 
-page = urllib.urlopen('http://ec2-54-173-153-28.compute-1.amazonaws.com:8000/subjects')
-content = page.read()
-obj = json.loads(content)
+
+#page = urllib.urlopen('http://ec2-54-173-153-28.compute-1.amazonaws.com:8000/subjects')
+#content = page.read()
+#obj = json.loads(content)
+
+
+#Instead of using loads which requires a string use, read(), we can just use requests. 
+
+page = requests.get('http://ec2-54-173-153-28.compute-1.amazonaws.com:8000/subjects')
+obj = page.json()
 
 # Parse only this information
 # ID of image
@@ -27,9 +35,8 @@ for key, value in obj.items():
 			print("i: " + str(i))
 
 			print("ID of the image: " + str(value[count]["subject_set_id"]))
-			print("URL of the image: " + str(value[count][]))
-
-
+			print("URL:" + str(value[count]["location"]["standard"])) 	
+		
 			count += 1
 			print("\n\n\n\n\n")
 
