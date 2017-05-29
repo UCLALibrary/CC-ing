@@ -1,3 +1,0 @@
-[submodule "image-uploader"]
-	path = image-uploader
-	url = https://github.com/ChristianKreuzberger/django-rest-imageupload-example
