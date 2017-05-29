@@ -21,7 +21,7 @@ obj = page.json()
 # Most popular image for title
 dataDict = []
 
-author = []
+authors = {}
 titles = {} 
 
 #  To handle dictionary of list of dictionary
@@ -40,17 +40,23 @@ for key, value in obj.items():
 			print("URL:" + str(value[count]["location"]["standard"]))
 
 			if(value[count]["type"] == "em_transcribed_author"):
-				author.append(value[count]["data"]["values"][0]["value"])
+				if str(value[count]["data"]["values"][0]["value"]) in authors:
+					authors[str(value[count]["data"]["values"][0]["value"])] += 1
+				else:
+					authors[str(value[count]["data"]["values"][0]["value"])] = 1
 			
 			if(value[count]["type"] == "em_transcribed_title"):
-				titles[str(value[count]["data"]["values"][0]["value"])] = 1
+				if str(value[count]["data"]["values"][0]["value"]) in titles:
+					titles[str(value[count]["data"]["values"][0]["value"])] += 1
+				else:
+					titles[str(value[count]["data"]["values"][0]["value"])] = 1
 			
 			count += 1
 			print("\n\n\n\n\n")
 
 
-print("author: " + str(author))
-print ("title: " + str(titles))
+print("authors: " + str(authors))
+print ("titles: " + str(titles))
 
 
 # print(obj)
