@@ -14,14 +14,13 @@ import requests
 page = requests.get('http://ec2-54-173-153-28.compute-1.amazonaws.com:8000/subjects')
 obj = page.json()
 
+dataDict = {"id": [], "url": [], "author": [], "title": []}
 # Parse only this information
 # ID of image
 # URL of image
 # Most popular image for author
-# Most popular image for title
-dataDict = []
-
 authors = {}
+# Most popular image for title
 titles = {} 
 
 #  To handle dictionary of list of dictionary
@@ -35,9 +34,13 @@ for key, value in obj.items():
 		# To handle list of dictionary
 		count = 0
 		for i in value:
-			print("i: " + str(i))
-			print("ID of the image: " + str(value[count]["subject_set_id"]))
-			print("URL:" + str(value[count]["location"]["standard"]))
+			# print("i: " + str(i))
+			# print("ID of the image: " + str(value[count]["subject_set_id"]))
+			if(str(value[count]["subject_set_id"]) != ""):
+				dataDict["id"].append(str(value[count]["subject_set_id"]))
+			# print("URL:" + str(value[count]["location"]["standard"]))
+			if(str(value[count]["location"]["standard"]) != ""):
+				dataDict["url"].append(str(value[count]["location"]["standard"]))
 
 			if(value[count]["type"] == "em_transcribed_author"):
 				if str(value[count]["data"]["values"][0]["value"]) in authors:
@@ -52,12 +55,23 @@ for key, value in obj.items():
 					titles[str(value[count]["data"]["values"][0]["value"])] = 1
 			
 			count += 1
-			print("\n\n\n\n\n")
+			# print("\n\n\n\n\n")
 
 
-print("authors: " + str(authors))
-print ("titles: " + str(titles))
+	# print("authors: " + str(authors))
+	# If authors is NOT empty
+	if(authors):
+		dataDict["author"].append(authors)
+	# print ("titles: " + str(titles))
+	if(titles):
+		dataDict["title"].append(titles)
 
+	# Now, we have all the assorted metadata
+	for key, value in dataDict.items():
+		cleanedJSON = json.dumps(value, separators=(',', ':'))
+
+		print ("key: " + str(key))
+		print("value: " + str(value))
 
 # print(obj)
 # print("\n\n\n\n\n\n\n\n\n\n")
