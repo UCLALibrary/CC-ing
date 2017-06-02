@@ -13,14 +13,16 @@
       "tool_config": {},
       "instruction": "Translate the author's name.",
       "examples": ["Mark Twain"],
-      "generates_subject_type": "em_transcribed_author"
+      "generates_subject_type": "em_transcribed_author",
+      "export_name": "Transcribed Author"	
     },
     "em_title": {
       "tool": "textTool",
       "tool_config": {},
       "instruction": "Translate the book's title.",
       "examples": ["Adventures of Huckleberry Finn"],
-      "generates_subject_type": "em_transcribed_title"
+      "generates_subject_type": "em_transcribed_title",
+      "export_name": "Transcribed Title"		
     }
   }
 }
