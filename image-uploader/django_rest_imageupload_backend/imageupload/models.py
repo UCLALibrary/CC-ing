@@ -75,7 +75,8 @@ class UploadedImage(models.Model):
         :return:
         """
         # generate and set thumbnail or none
-        self.thumbnail = create_thumbnail(self.image)
+#        self.thumbnail = create_thumbnail(self.image)
+        self.thumbnail = None
 
         # Check if a pk has been set, meaning that we are not creating a new image, but updateing an existing one
         #if self.pk:
