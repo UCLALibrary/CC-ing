@@ -14,8 +14,8 @@ def scramble_uploaded_filename(instance, filename):
     :return:
     """
     extension = filename.split(".")[-1]
-    return "{}.{}".format(uuid.uuid4(), extension)
-
+    #return "{}.{}".format(uuid.uuid4(), extension)
+    return "{}.{}.jpg"
 
 def create_thumbnail(input_image, thumbnail_size=(256, 256)):
     """
