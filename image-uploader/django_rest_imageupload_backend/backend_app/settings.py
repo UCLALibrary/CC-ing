@@ -123,7 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'uploaded_media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'uploaded_media')
+MEDIA_ROOT = '/var/www/html/test_images'
 
 
 INSTALLED_APPS += ('lockdown', )
