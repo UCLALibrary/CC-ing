@@ -1,1 +1,6 @@
 .DS_Store
+*.pyc
+image-uploader/db.sqlite3
+image-uploader/venv/
+image-uploader/.idea/
+image-uploader/uploaded_media/
