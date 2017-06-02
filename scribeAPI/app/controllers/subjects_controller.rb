@@ -46,10 +46,10 @@ class SubjectsController < ApplicationController
       @subjects = @subjects.user_has_not_classified user.id.to_s if ! user.nil?
 
       # Should we filter out subjects that the user herself created?
-      if ! user.nil? && ! (workflow = Workflow.find(workflow_id)).nil? && ! workflow.subjects_classifiable_by_creator
+#      if ! user.nil? && ! (workflow = Workflow.find(workflow_id)).nil? && ! workflow.subjects_classifiable_by_creator
         # Note: creating_user_ids are stored as ObjectIds, so no need to filter on user.id.to_s:
-        @subjects = @subjects.user_did_not_create user.id if ! user.nil?
-      end
+#        @subjects = @subjects.user_did_not_create user.id if ! user.nil?
+#      end
     end
 
     links = {
@@ -70,6 +70,7 @@ class SubjectsController < ApplicationController
       self: url_for(@subject)
     }
     @subject = Subject.find subject_id
+
     respond_with SubjectResultSerializer.new(@subject, scope: self.view_context), links: links
   end
 

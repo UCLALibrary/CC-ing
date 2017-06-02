@@ -1,0 +1,4 @@
+Init: OAUTH providers: []
+Routing static assets from ./project/cc-ing/assets
+Created OCRbot. Use HTTP header to authenticate:
+  HTTP_BOT_AUTH=590c2c2b69702d14c0000000:jURykP_ehCCmtZixsavi

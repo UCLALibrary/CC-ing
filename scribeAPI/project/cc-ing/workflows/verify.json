@@ -14,13 +14,15 @@
       "instruction": "Choose the best translation or enter your own!",
       "tool": "verifyTool",
       "tool_config": {        "displays_transcribe_button": true      },
-      "generates_subject_type": "consensus_author"
+      "generates_subject_type": "consensus_author",
+      "export_name": "Consensus Author"	
     },
     "em_transcribed_title": {
       "instruction": "Choose the best translation or enter your own!",
       "tool": "verifyTool",
       "tool_config": {        "displays_transcribe_button": true      },
-      "generates_subject_type": "consensus_title"
+      "generates_subject_type": "consensus_title",
+      "export_name": "Consensus Title"
     }
   }
 }

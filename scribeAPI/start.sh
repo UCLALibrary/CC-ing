@@ -7,6 +7,5 @@ then
 fi
 
 ln -fs /config/* ./config/
-echo "Hello!"
-bundle exec rails server -p 80 & python image_handling.py
 
+exec bundle exec rails server -p 80
