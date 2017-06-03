@@ -62,6 +62,8 @@ for key, value in obj.items():
 
 	max = 0
 	name = ""
+	tmax = 0 
+	tname = ""
 	for key, value in authors:
 		if(authors[key] > max):
 			name = key
@@ -70,8 +72,17 @@ for key, value in obj.items():
 			name = key
 			max = authors[key]
 
-	dataDict["author"].append(name)
 
+	for key, value in titles:
+		if(titles[key] > tmax):
+			tname = key
+			tmax = titles[key]
+		else:
+			tname = key
+			tmax = titles[key]
+
+	dataDict["author"].append(name)
+	dataDict["title"].append(tname)
 
 	# print("authors: " + str(authors))
 	# If authors is NOT empty
