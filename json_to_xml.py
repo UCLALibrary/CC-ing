@@ -47,7 +47,7 @@ for key, value in obj.items():
 					authors[str(value[count]["data"]["values"][0]["value"])] += 1
 				else:
 					authors[str(value[count]["data"]["values"][0]["value"])] = 1
-			
+				
 			if(value[count]["type"] == "em_transcribed_title"):
 				if str(value[count]["data"]["values"][0]["value"]) in titles:
 					titles[str(value[count]["data"]["values"][0]["value"])] += 1
@@ -56,6 +56,21 @@ for key, value in obj.items():
 			
 			count += 1
 			# print("\n\n\n\n\n")
+
+	for key, value in authors:
+		print(authors[key])
+
+	max = 0
+	name = ""
+	for key, value in authors:
+		if(authors[key] > max):
+			name = key
+			max = authors[key]
+		else:
+			name = key
+			max = authors[key]
+
+	dataDict["author"].append(name)
 
 
 	# print("authors: " + str(authors))
