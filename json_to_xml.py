@@ -23,6 +23,34 @@ authors = {}
 # Most popular image for title
 titles = {} 
 
+authors["DaLarm"] = 1
+authors["Matt"] = 10
+titles["dhan"] = 5
+titles["MattLin"] = 10
+
+max = 0
+tmax = 0
+name = ""
+tname = ""
+
+for key in authors: 
+
+	if(authors[key] >= max):
+		print("current name: " + name)
+		print("current max: " + str(max))
+		name = key
+		max = authors[key]
+	
+for key in titles:
+	print(tname)
+	if(titles[key] >= tmax):
+		tname = key
+		tmax = titles[key]
+
+
+
+
+
 #  To handle dictionary of list of dictionary
 for key, value in obj.items():
 	# data is the only meaningful key
@@ -57,40 +85,19 @@ for key, value in obj.items():
 			count += 1
 			# print("\n\n\n\n\n")
 
-	for key, value in authors:
-		print(authors[key])
+	
 
-	max = 0
-	name = ""
-	tmax = 0 
-	tname = ""
-	for key, value in authors:
-		if(authors[key] > max):
-			name = key
-			max = authors[key]
-		else:
-			name = key
-			max = authors[key]
-
-
-	for key, value in titles:
-		if(titles[key] > tmax):
-			tname = key
-			tmax = titles[key]
-		else:
-			tname = key
-			tmax = titles[key]
 
 	dataDict["author"].append(name)
 	dataDict["title"].append(tname)
 
 	# print("authors: " + str(authors))
 	# If authors is NOT empty
-	if(authors):
-		dataDict["author"].append(authors)
+#	if(authors):
+#		dataDict["author"].append(authors)
 	# print ("titles: " + str(titles))
-	if(titles):
-		dataDict["title"].append(titles)
+#	if(titles):
+#		dataDict["title"].append(titles)
 
 	# Now, we have all the assorted metadata
 
