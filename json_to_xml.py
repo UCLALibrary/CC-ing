@@ -137,4 +137,11 @@ xml = dicttoxml.dicttoxml(loadedJSON)
 print(xml)
 print("\n\n")
 
+# This creates the file for the Library
+filename = "./json_to_xml/{}".format(xml) + ".xml"
+os.makedirs(os.path.dirname(filename), exist_ok=True)
+with open(filename, "w") as f:
+	f.write(menuJSON)
+	f.close()
+
 # print(obj)
