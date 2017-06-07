@@ -2,6 +2,8 @@ import json
 import urllib
 import dicttoxml
 import requests
+import os
+import datetime
 
 
 #page = urllib.urlopen('http://ec2-54-173-153-28.compute-1.amazonaws.com:8000/subjects')
@@ -138,10 +140,19 @@ print(xml)
 print("\n\n")
 
 # This creates the file for the Library
-filename = "./json_to_xml/{}".format(xml) + ".xml"
-os.makedirs(os.path.dirname(filename), exist_ok=True)
-with open(filename, "w") as f:
-	f.write(menuJSON)
-	f.close()
+# filename = "./json_to_xml/{}".format(xml) + ".xml"
+# os.makedirs(os.path.dirname(filename), exist_ok=True)
+# with open(filename, "w") as f:
+# 	f.write(menuJSON)
+# 	f.close()
+
+directory = "./json_to_xml/"
+filename = directory + "converted_json " + str(datetime.datetime.now()) + ".xml"
+if not os.path.exists(directory):
+    os.makedirs(directory)
+
+f = open(filename, 'w')
+f.write(xml)
+f.close()
 
 # print(obj)
