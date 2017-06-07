@@ -147,7 +147,7 @@ print("\n\n")
 # 	f.close()
 
 directory = "./json_to_xml/"
-filename = directory + "converted_json " + str(datetime.datetime.now()) + ".xml"
+filename = directory + "converted_to_xml " + str(datetime.datetime.now()) + ".xml"
 if not os.path.exists(directory):
     os.makedirs(directory)
 
