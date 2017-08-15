@@ -17,9 +17,12 @@ The image capturing process will be completed in 3 phases:
        -In the event that not all 4 image types (barcode,title,inner cover, last page) are taken, we will need some way of further
         identifying each image type because we would then be missing some image & that'd throw off the image sorting & naming process
 2) Transfer of Image to a server/computer for file naming & sorting
-        -The DSLR/GoPro/Phone Camera shall transfer the captured images via WiFi to a PC/server where they shall be named using the barcode
-         tag for the book & the associated lables for each type of image (T for Title, C for Inner Cover, L for Last, and B for Barcode)
-         -The Barcode servers as the baseline for identifying the book as well as the images associated with the book. (EX: If the barcode
+       
+       -The DSLR/GoPro/Phone Camera shall transfer the captured images via WiFi to a PC/server where they shall be named using the 
+       barcode tag for the book & the associated lables for each type of image (T for Title, C for Inner Cover, L for Last, and B for 
+       Barcode)
+       
+       -The Barcode servers as the baseline for identifying the book as well as the images associated with the book. (EX: If the barcode
         is "00004SB7XC" then the image file for the book's barcode is "00004SB7XC_B.jpg" & the book's title image is "00004SB7XC_T.jpg"
        
        -The image naming process may be accomplished using a batch file script to rename images based on the Barcode ID associated with
@@ -28,7 +31,8 @@ The image capturing process will be completed in 3 phases:
        -The Barcode may be identified & processed into an inputtable string using OpenCV & Python code as described in the following
         repo provied by: https://medium.com/@yushulx/raspberry-pi-barcode-scanner-in-python-927839100c6b
 3) Feeding of files to Django web server for language sorting & categorization (final step before passing to Tesseract-Scribe-Workflow).
-        -Uploads can be accomplished using the Django Uploader framework previously set forth in the UCLA/CC-ING GitHub by previous 
+      
+       -Uploads can be accomplished using the Django Uploader framework previously set forth in the UCLA/CC-ING GitHub by previous 
         members.
        
        -Additionally, we may be able to set the server to request files from the PC/Server which we are uploading images to using Python 
