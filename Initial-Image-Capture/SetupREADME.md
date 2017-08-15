@@ -29,7 +29,8 @@ The image capturing process will be completed in 3 phases:
         the book & the corresponding label (B/T/C/L) associated with the image
        
        -The Barcode may be identified & processed into an inputtable string using OpenCV & Python code as described in the following
-        repo provied by: https://medium.com/@yushulx/raspberry-pi-barcode-scanner-in-python-927839100c6b
+        repo provied by: https://medium.com/@yushulx/raspberry-pi-barcode-scanner-in-python-927839100c6b. Alternatively, it is possible 
+        to work with ZBAR (Python integrated version) to do Barcode reading.
 3) Feeding of files to Django web server for language sorting & categorization (final step before passing to Tesseract-Scribe-Workflow).
       
        -Uploads can be accomplished using the Django Uploader framework previously set forth in the UCLA/CC-ING GitHub by previous 
