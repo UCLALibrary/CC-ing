@@ -1,0 +1,7 @@
+For Barcode Reading, we choose to use ZBar Bar Code Reader (the Python integrated version).
+ZBar Bar Code Reader is an open source software suite for reading bar codes from various sources, such as video streams, image files and raw intensity sensors. It supports EAN-13/UPC-A, UPC-E, EAN-8, Code 128, Code 39, Interleaved 2 of 5 and QR Code. These are the Python bindings for the library. 
+Check the website for latest info: http://zbar.sourceforge.net/
+
+IMPORTANT: ZBar from the above site is only compatible with Python 2. Python 3 will fail to run ZBar from the site. As a result, we need to use the following ZBAR Wrapper for Python 3 written by @BrettAtoms which can be found at the following site: https://github.com/brettatoms/zbar-ctypes.git. However, please note that I have already set up all files in this GitHub Repo, with a few changes to the original code, so please use this code for UCLA/CC-ING purposes!
+
+Note: As a Windows user, I recommend using the above GitHub site for setup of ZBar, as it is the most straight-forward method that I found. If someone finds another means to install ZBar, please do notify me!
