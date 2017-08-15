@@ -1,0 +1,8 @@
+setup.py
+zbar/__init__.py
+zbar/_ctypes.py
+zbar/zbar.py
+zbar_ctypes.egg-info/PKG-INFO
+zbar_ctypes.egg-info/SOURCES.txt
+zbar_ctypes.egg-info/dependency_links.txt
+zbar_ctypes.egg-info/top_level.txt
