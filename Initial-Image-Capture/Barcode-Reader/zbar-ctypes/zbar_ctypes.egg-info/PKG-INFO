@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: zbar-ctypes
+Version: 0.1
+Summary: Python wrapper for the ZBar barcode scanner library.
+Home-page: http://github.com/brettatoms/zbar-ctypes
+Author: Brett
+Author-email: brettatoms@gmail.com
+License: MIT
+Download-URL: https://github.com/brettatoms/zbar-ctypes.
+Description: UNKNOWN
+Keywords: barcode,zbar,zxing,upc,qr
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Multimedia :: Graphics :: Capture :: Scanners
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4

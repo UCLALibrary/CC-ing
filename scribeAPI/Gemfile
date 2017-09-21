@@ -42,6 +42,8 @@ gem 'aws-sdk', '~> 2'
 
 # gem 'mongoid_fulltext'
 
+gem 'jmespath', '~> 1.1.3'
+
 group :development do
   gem 'dotenv-rails'
 end

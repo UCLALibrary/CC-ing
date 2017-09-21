@@ -14,8 +14,8 @@ def scramble_uploaded_filename(instance, filename):
     :return:
     """
     extension = filename.split(".")[-1]
-    return "{}.{}".format(uuid.uuid4(), extension)
-
+    #return "{}.{}".format(uuid.uuid4(), extension)
+    return "{}.{}.jpg"
 
 def create_thumbnail(input_image, thumbnail_size=(256, 256)):
     """
@@ -75,7 +75,8 @@ class UploadedImage(models.Model):
         :return:
         """
         # generate and set thumbnail or none
-        self.thumbnail = create_thumbnail(self.image)
+#        self.thumbnail = create_thumbnail(self.image)
+        self.thumbnail = None
 
         # Check if a pk has been set, meaning that we are not creating a new image, but updateing an existing one
         #if self.pk:

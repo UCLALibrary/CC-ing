@@ -1,1 +1,10 @@
 .DS_Store
+*.pyc
+image-uploader/db.sqlite3
+image-uploader/venv/
+image-uploader/.idea/
+image-uploader/uploaded_media/
+image-uploader/django_rest_imageupload_backend/db.sqlite3
+ocr/complete/build
+ocr/complete/.mvn
+ocr/complete/.gradle
