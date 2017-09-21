@@ -1,0 +1,40 @@
+{
+  "groups": [{
+    "name": "storage",
+    "type": "textRecognitionAPI.storage.StorageProperties",
+    "sourceType": "textRecognitionAPI.storage.StorageProperties"
+  }],
+  "properties": [
+    {
+      "name": "storage.location",
+      "type": "java.lang.String",
+      "sourceType": "textRecognitionAPI.storage.StorageProperties",
+      "defaultValue": "/var/tmp/tessFiles"
+    },
+    {
+      "name": "storage.ocr-engine-mode",
+      "type": "java.lang.Integer",
+      "sourceType": "textRecognitionAPI.storage.StorageProperties",
+      "defaultValue": 0
+    },
+    {
+      "name": "storage.ocr-language",
+      "type": "java.lang.String",
+      "sourceType": "textRecognitionAPI.storage.StorageProperties",
+      "defaultValue": "eng+jpn+mya+hin+ind+msa+lao+tgl+pan+tam+tha+amh+tir+san+vie+khm"
+    },
+    {
+      "name": "storage.ocr-page-mode",
+      "type": "java.lang.Integer",
+      "sourceType": "textRecognitionAPI.storage.StorageProperties",
+      "defaultValue": 3
+    },
+    {
+      "name": "storage.tess4j-dir",
+      "type": "java.lang.String",
+      "sourceType": "textRecognitionAPI.storage.StorageProperties",
+      "defaultValue": "/usr/share/tesseract-ocr/"
+    }
+  ],
+  "hints": []
+}

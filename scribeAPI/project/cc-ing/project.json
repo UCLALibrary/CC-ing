@@ -17,7 +17,10 @@
     "arkox617@gmail.com",
     "dalarm@g.ucla.edu",
     "ankur.papneja50@gmail.com",
-    "Johnny5550822@g.ucla.edu"
+    "Johnny5550822@g.ucla.edu",
+    "calvinha721@gmail.com",
+    "jeremywong314@gmail.com",
+    "jonathanchu78@gmail.com"
   ],
   "team": [
     {
@@ -64,6 +67,24 @@
 
     {
       "name": "Jasmine Kim",
+      "role": "Software Developer",
+      "organization": "BuildUCLA"
+    },
+
+    {
+      "name": "Calvin Ha",
+      "role": "Software Developer",
+      "organization": "BuildUCLA"
+    },
+
+    {
+      "name": "Jeremy Wong",
+      "role": "Software Developer",
+      "organization": "BuildUCLA"
+    },
+
+    {
+      "name": "Jonathan Chu",
       "role": "Software Developer",
       "organization": "BuildUCLA"
     }
