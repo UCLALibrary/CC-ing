@@ -1,6 +1,9 @@
 Django>=1.10,<1.11
+Cython==0.24.1
 Markdown==2.6.6
 Pillow==3.3.0
 django-filter>=1.0,<2
 djangorestframework>=3.5,<4
 django-lockdown
+tesserocr==2.1.2
+gunicorn==19.6.0
