@@ -1,2 +1,2 @@
 #!/bin/bash
-exec ./manage.py runserver 0.0.0.0:3000
+exec python3 manage.py runserver 0.0.0.0:3000
