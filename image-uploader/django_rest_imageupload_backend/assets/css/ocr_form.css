@@ -30,7 +30,7 @@
 .image-container {
     border-color: black;
     border-width: medium;
-    border-style: dashed;
+    border-style: solid;
     margin-right: 1vw;
     flex: 1;
 }
@@ -43,7 +43,7 @@
 }
 
 .result-container {
-    border-style: dashed;
+    border-style: solid;
     border-width: medium;
     margin-left: 1vw;
     flex: 1;
