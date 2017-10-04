@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'imageupload_rest',
     'imageupload_frontend',
     'documents',
+    'lockdown',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'lockdown.middleware.LockdownMiddleware',
 ]
 
 ROOT_URLCONF = 'backend_app.urls'
@@ -135,9 +137,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'uploaded_media')
 MEDIA_ROOT = '/var/www/html/test_images'
 
-
-INSTALLED_APPS += ('lockdown', )
-MIDDLEWARE += ('lockdown.middleware.LockdownMiddleware', )
 LOCKDOWN_PASSWORDS = ('password123', )
 LOCKDOWN_FORM = 'lockdown.forms.LockdownForm'
 MEDIA_URL = '/media/'

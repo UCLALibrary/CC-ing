@@ -2,6 +2,7 @@ from django.http.response import JsonResponse
 from django.views.generic.base import View, TemplateView
 from django.views.decorators.csrf import csrf_exempt
 
+import tesserocr
 from PIL import Image, ImageFilter
 from tesserocr import PyTessBaseAPI
 
@@ -18,6 +19,5 @@ class OcrView(View):
                 sharpened_image = image.filter(ImageFilter.SHARPEN)
                 api.SetImage(sharpened_image)
                 utf8_text = api.GetUTF8Text()
-
         return JsonResponse({'utf8_text': utf8_text})
 ocr_view = csrf_exempt(OcrView.as_view())
