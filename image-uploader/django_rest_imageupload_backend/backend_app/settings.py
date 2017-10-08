@@ -137,6 +137,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'uploaded_media')
 MEDIA_ROOT = '/var/www/html/test_images'
 
-LOCKDOWN_PASSWORDS = ('password123', )
+LOCKDOWN_ENABLED = "True"
+LOCKDOWN_PASSWORDS = ('password123')
 LOCKDOWN_FORM = 'lockdown.forms.LockdownForm'
 MEDIA_URL = '/media/'

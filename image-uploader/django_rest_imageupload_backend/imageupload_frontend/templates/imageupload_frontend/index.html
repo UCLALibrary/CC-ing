@@ -3,25 +3,26 @@
 <head>
     <meta charset="utf-8">
 
-    <link rel="icon" href="favicon.ico">
+	{%  load staticfiles %}
+    <link rel="icon" href="{% static 'favicon.ico' %}">
 
     <!-- Include Angular and several angular libraries -->
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-resource/angular-resource.min.js"></script>
-    <script src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
-    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
-    <script src="node_modules/angularjs-toaster/toaster.js"></script>
+    <script src="{% static 'node_modules/angular/angular.js' %}"></script>
+    <script src="{% static 'node_modules/angular-resource/angular-resource.min.js' %}"></script>
+    <script src="{% static 'node_modules/ng-file-upload/dist/ng-file-upload.min.js' %}"></script>
+    <script src="{% static 'node_modules/angular-animate/angular-animate.min.js' %}"></script>
+    <script src="{% static 'node_modules/angularjs-toaster/toaster.js' %}"></script>
 
     <!-- Include our app -->
-    <script src="js/app.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
     <!-- Include our own controllers, factories, directives, etc... -->
-    <script src="js/images.rest.js"></script>
+    <script src="{% static 'js/images.rest.js' %}"></script>
 
     <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}">
 
     <!-- Include AngularJS Toaster CSS -->
-    <link rel="stylesheet" href="node_modules/angularjs-toaster/toaster.min.css">
+    <link rel="stylesheet" href="{% static 'node_modules/angularjs-toaster/toaster.min.css' %}">
 </head>
 <body>
 
@@ -29,7 +30,7 @@
 
 <div class="page header">
 	
-	<h1 style="font-size:55px">&nbsp; <img src="UCLAlibrary.jpg" height="70" width="250"> <u><b> Community Cataloguing </u></b></h1>
+	<h1 style="font-size:55px">&nbsp; <img src="{% static 'UCLAlibrary.jpg' %}" height="70" width="250"> <u><b> Community Cataloguing </u></b></h1>
 </div>
 
 <div class="container-fluid">
@@ -44,8 +45,7 @@
                                class="form-control"
                                accept="image/*" ngf-max-size="10MB" required
                                ngf-model-invalid="errorFile">
-                        <i ng-show="form.file.$error.maxSize">File too large
-                            {{ errorFile.size / 1000000 | number:1 }} MB: max 10M</i>
+        
                         <img ng-show="form.file.$valid" ngf-thumbnail="newImage.image" class="img-responsive" style="max-width: 50%">
                         <button class="btn btn-warning" ng-click="newImage.image = null" ng-show="newImage.image">Remove</button>
                     </div>
